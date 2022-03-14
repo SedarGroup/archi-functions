@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 exports.handler = (event, context, callback) => {
   const mail = event.queryStringParameters.email;
+  if(mail){
   var con = mysql.createConnection({
     host: process.env.HOSTNAME,
     user: process.env.USER,
@@ -28,5 +29,11 @@ exports.handler = (event, context, callback) => {
         body: '1 mail inserted'
       })
     });
-  });
+  });}
+  else {
+    callback(null, {
+      statusCode: 404,
+      body: 'No mail provided'
+    })
+  }
 }
