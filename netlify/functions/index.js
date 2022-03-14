@@ -2,7 +2,7 @@ var mysql = require('mysql');
 exports.handler = (event, context, callback) => {
   const mail = event.queryStringParameters.email;
   var con = mysql.createConnection({
-    host: process.env.HOST,
+    host: process.env.HOSTNAME,
     user: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE
