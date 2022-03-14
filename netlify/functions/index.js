@@ -3,7 +3,7 @@ exports.handler = (event, context, callback) => {
   const mail = event.queryStringParameters.email;
   if(mail){
   var con = mysql.createConnection({
-    host: process.env.HOSTNAME,
+    host: process.env.MYSQLHOSTNAME,
     user: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE
